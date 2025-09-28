@@ -1,96 +1,647 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Intan | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intan Baharin - Software Engineer</title>
+    <style>
+        /* Utopia-inspired fluid typography and spacing */
+        :root {
+            /* Fluid typography from utopia.fyi */
+            --step--2: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.83rem);
+            --step--1: clamp(0.83rem, calc(0.78rem + 0.29vw), 1.04rem);
+            --step-0: clamp(1rem, calc(0.91rem + 0.43vw), 1.31rem);
+            --step-1: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.64rem);
+            --step-2: clamp(1.44rem, calc(1.26rem + 0.89vw), 2.05rem);
+            --step-3: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.56rem);
+            --step-4: clamp(2.07rem, calc(1.73rem + 1.70vw), 3.20rem);
+            --step-5: clamp(2.49rem, calc(2.03rem + 2.31vw), 4.00rem);
+            
+            /* Fluid space from utopia.fyi */
+            --space-3xs: clamp(0.25rem, calc(0.23rem + 0.11vw), 0.33rem);
+            --space-2xs: clamp(0.5rem, calc(0.45rem + 0.22vw), 0.66rem);
+            --space-xs: clamp(0.75rem, calc(0.68rem + 0.33vw), 0.98rem);
+            --space-s: clamp(1rem, calc(0.91rem + 0.43vw), 1.31rem);
+            --space-m: clamp(1.5rem, calc(1.36rem + 0.65vw), 1.97rem);
+            --space-l: clamp(2rem, calc(1.82rem + 0.87vw), 2.63rem);
+            --space-xl: clamp(3rem, calc(2.73rem + 1.30vw), 3.94rem);
+            --space-2xl: clamp(4rem, calc(3.64rem + 1.74vw), 5.25rem);
+            --space-3xl: clamp(6rem, calc(5.45rem + 2.61vw), 7.88rem);
 
-  <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+            /* Colors */
+            --bg-primary: #0f0f23;
+            --bg-secondary: #1a1a2e;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --border: #334155;
+        }
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: var(--step-0);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-s);
+        }
+
+        /* Header */
+        header {
+            padding: var(--space-m) 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: var(--step-1);
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-m);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--space-3xl) 0 var(--space-2xl);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: var(--step-5);
+            font-weight: 800;
+            margin-bottom: var(--space-s);
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: var(--step-1);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-l);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-s);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: var(--space-xs) var(--space-m);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            color: var(--text-primary);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            padding: var(--space-2xl) 0;
+        }
+
+        .section-title {
+            font-size: var(--step-3);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            color: var(--text-primary);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: var(--space-s);
+            color: var(--text-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--space-s);
+        }
+
+        .skill-item {
+            background: var(--bg-secondary);
+            padding: var(--space-xs);
+            border-radius: 6px;
+            text-align: center;
+            font-size: var(--step--1);
+            border: 1px solid var(--border);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-l);
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: var(--space-l);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .project-card h3 {
+            font-size: var(--step-1);
+            margin-bottom: var(--space-xs);
+            color: var(--text-primary);
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-s);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2xs);
+            margin-bottom: var(--space-s);
+        }
+
+        .tech-tag {
+            background: var(--bg-primary);
+            padding: var(--space-3xs) var(--space-2xs);
+            border-radius: 4px;
+            font-size: var(--step--2);
+            color: var(--accent);
+            border: 1px solid var(--border);
+        }
+
+        .project-links {
+            display: flex;
+            gap: var(--space-xs);
+        }
+
+        .project-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: var(--step--1);
+        }
+
+        .project-links a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Education Section */
+        .education-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            display: flex;
+            margin-bottom: var(--space-l);
+            padding: var(--space-l);
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .education-date {
+            min-width: 120px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .education-content h3 {
+            color: var(--text-primary);
+            margin-bottom: var(--space-3xs);
+        }
+
+        .education-content h4 {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+        }
+
+        .education-content p {
+            color: var(--text-secondary);
+            font-size: var(--step--1);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-secondary);
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-l);
+            margin-top: var(--space-l);
+        }
+
+        .contact-links a {
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2xs);
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Footer */
+        footer {
+            padding: var(--space-l) 0;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-l);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-item {
+                flex-direction: column;
+            }
+
+            .education-date {
+                margin-bottom: var(--space-xs);
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--space-s);
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
 </head>
 <body>
-  <main class="site">
-    <!-- Banner -->
-    <section class="hero">
-      <img class="banner" src="assets/banner.png" alt="Banner" onerror="this.src='https://via.placeholder.com/1200x400.png?text=Intan+Portfolio'" />
-      <div class="hero-inner">
-        <h1>Hi 👋, I'm Intan</h1>
-        <p class="lead">Software Engineering student at Multimedia University — I build web & mobile apps and explore AI.</p>
+    <header>
+        <nav class="container">
+            <div class="logo">IB</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="hero-ctas">
-          <a class="btn" href="#projects">See Projects</a>
-          <a class="btn ghost" href="https://github.com/intanhbrh" target="_blank" rel="noopener">GitHub</a>
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1 class="fade-in-up">Intan Baharin</h1>
+                <p class="fade-in-up">Software Engineering Student & Aspiring Developer</p>
+                <p class="fade-in-up">Passionate about creating innovative solutions and building scalable applications. Currently seeking remote opportunities while completing my final year.</p>
+                <div class="cta-buttons fade-in-up">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm a final-year Computer Science student specializing in Software Engineering at Multimedia University. With a strong foundation built during my diploma (CGPA: 3.63/4.00, Dean's List for 4 semesters), I'm passionate about creating efficient, scalable software solutions.</p>
+                        <p>Currently looking for remote opportunities that align with my academic schedule as I complete my degree. I'm an adaptable learner who thrives on challenges and continuously seeks to expand my technical expertise.</p>
+                        <p>Available for remote work starting November 2024 with flexible scheduling to accommodate my final semester classes.</p>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">Java</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">HTML/CSS</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">PHP</div>
+                        <div class="skill-item">React</div>
+                        <div class="skill-item">Node.js</div>
+                        <div class="skill-item">MySQL</div>
+                        <div class="skill-item">Git</div>
+                        <div class="skill-item">MongoDB</div>
+                        <div class="skill-item">RESTful APIs</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <!-- You'll replace these with your actual projects -->
+                    <div class="project-card">
+                        <h3>E-Commerce Web Application</h3>
+                        <p>Full-stack web application with user authentication, product catalog, and payment integration. Built during degree coursework.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Express</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Live Demo →</a>
+                            <a href="#" target="_blank">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Task Management System</h3>
+                        <p>Desktop application for project management with real-time collaboration features. Implemented during software engineering course.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">JavaFX</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">Socket.IO</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Demo →</a>
+                            <a href="#" target="_blank">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Student Information System</h3>
+                        <p>Web-based system for managing student records and grades. Diploma final year project with role-based access control.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">jQuery</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Live Demo →</a>
+                            <a href="#" target="_blank">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Mobile Restaurant App</h3>
+                        <p>Cross-platform mobile application for restaurant ordering with real-time order tracking and payment processing.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Stripe API</span>
+                            <span class="tech-tag">Redux</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Demo →</a>
+                            <a href="#" target="_blank">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Data Analytics Dashboard</h3>
+                        <p>Interactive dashboard for visualizing business metrics with real-time data updates and custom reporting features.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Live Demo →</a>
+                            <a href="#" target="_blank">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>API Gateway Service</h3>
+                        <p>Microservices architecture project with load balancing, rate limiting, and authentication middleware.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Documentation →</a>
+                            <a href="#" target="_blank">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-timeline">
+                    <div class="education-item">
+                        <div class="education-date">2023 - 2026</div>
+                        <div class="education-content">
+                            <h3>Bachelor's Degree in Computer Science</h3>
+                            <h4>Software Engineering • Multimedia University</h4>
+                            <p>Specializing in software engineering with focus on object-oriented programming, system design, and software quality assurance. Currently in final year.</p>
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-date">2020 - 2023</div>
+                        <div class="education-content">
+                            <h3>Diploma in Computer Science</h3>
+                            <h4>CGPA: 3.63/4.00 • Universiti Tenaga Nasional</h4>
+                            <p>Dean's List recipient for 4 consecutive semesters. Strong foundation in programming, data structures, database systems, and web development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Let's Work Together</h2>
+                <div class="contact-content">
+                    <p>I'm actively seeking remote software engineering opportunities that offer flexible scheduling. If you're looking for a dedicated developer who can contribute effectively while completing their studies, let's connect!</p>
+                    <div class="contact-links">
+                        <a href="mailto:your.email@example.com">📧 Email</a>
+                        <a href="https://linkedin.com/in/intanhbrh" target="_blank">💼 LinkedIn</a>
+                        <a href="https://github.com/yourusername" target="_blank">💻 GitHub</a>
+                        <a href="tel:+60123456789">📱 Phone</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Intan Baharin. Built with modern web technologies.</p>
         </div>
-
-        <div class="visitor">
-          <img src="https://profile-counter.glitch.me/intanhbrh/count.svg" alt="Visitor Count" />
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="container">
-      <h2>About Me</h2>
-      <p>I’m a final-year Software Engineering student at Multimedia University (MMU), Malaysia. I’m passionate about web design, web development, mobile apps, and open-source contributions. Currently exploring frameworks and AI technologies.</p>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="container">
-      <h2>Languages & Tools</h2>
-      <p class="skills-logos">
-        <img src="https://skillicons.dev/icons?i=java,js,php,cpp,html,css,mysql,android,bootstrap,git,linux" alt="skills" />
-      </p>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="container">
-      <h2>Projects</h2>
-
-      <div class="projects-grid">
-        <article class="card">
-          <h3>Student Event Portal</h3>
-          <p>Event registration system — React, Node.js, Express, MongoDB. Login, admin dashboard, event sign-ups.</p>
-          <p class="card-links"><a href="https://github.com/intanhbrh/your-project-repo" target="_blank">View on GitHub</a></p>
-        </article>
-
-        <article class="card">
-          <h3>Face Recognition Attendance</h3>
-          <p>Smart attendance using ML and webcam integration. Built with Python and OpenCV.</p>
-          <p class="card-links"><a href="https://github.com/intanhbrh/your-project-repo2" target="_blank">View on GitHub</a></p>
-        </article>
-
-        <article class="card">
-          <h3>SafePoint (Emergency App)</h3>
-          <p>One-touch emergency contact + reporting app for quick help. Mobile UI and backend API.</p>
-          <p class="card-links"><a href="https://github.com/intanhbrh/your-project-repo3" target="_blank">View on GitHub</a></p>
-        </article>
-      </div>
-
-      <p class="more-link">More projects on <a href="https://github.com/intanhbrh" target="_blank">GitHub</a></p>
-
-      <div class="stats-row">
-        <img src="https://github-readme-stats.vercel.app/api?username=intanhbrh&show_icons=true&theme=tokyonight" alt="GitHub stats" />
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=intanhbrh&layout=compact&theme=tokyonight" alt="Top languages" />
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="container">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:intanhbrh@gmail.com">intanhbrh@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/intanhbrh/" target="_blank">/in/intanhbrh</a></p>
-    </section>
-
-    <footer class="site-footer">
-      <p>© <span id="year"></span> Intan Habriah — Built with ❤️</p>
     </footer>
-  </main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update active navigation link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards and education items
+        document.querySelectorAll('.project-card, .education-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
