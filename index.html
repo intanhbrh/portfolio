@@ -1,81 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Intan | Portfolio</title>
-  <style>
-    :root {
-      /* Utopia Fluid Type Scale */
-      --step--1: clamp(0.83rem, 0.77rem + 0.27vw, 1.00rem);
-      --step-0: clamp(1.00rem, 0.90rem + 0.37vw, 1.25rem);
-      --step-1: clamp(1.20rem, 1.05rem + 0.48vw, 1.56rem);
-      --step-2: clamp(1.44rem, 1.23rem + 0.61vw, 1.95rem);
-    }
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      text-align: center;
-      background: #fdfdfd;
-    }
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    header {
-      background: #333;
-      color: white;
-      padding: 2rem;
-    }
-
-    header h1 {
-      font-size: var(--step-2);
-    }
-
-    section {
-      padding: 2rem;
-    }
-
-    h2 {
-      font-size: var(--step-1);
-      margin-bottom: 1rem;
-    }
-
-    a {
-      color: #0073e6;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Hi 👋, I'm Intan</h1>
-    <p>Software Engineering Student at MMU Cyberjaya</p>
-  </header>
+  <main class="site">
+    <!-- Banner -->
+    <section class="hero">
+      <!-- If you add assets/banner.png it will be used. If not, placeholder shows. -->
+      <img class="banner" src="assets/banner.png" alt="Banner" onerror="this.src='https://via.placeholder.com/1200x400.png?text=Intan+Portfolio'" />
+      <div class="hero-inner">
+        <h1>Hi 👋, I'm Intan</h1>
+        <p class="lead">Software Engineering student at Multimedia University — I build web & mobile apps and explore AI.</p>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I’m passionate about web design, development, mobile apps, and open-source contributions.</p>
-  </section>
+        <div class="hero-ctas">
+          <a class="btn" href="#projects">See Projects</a>
+          <a class="btn ghost" href="https://github.com/intanhbrh" target="_blank" rel="noopener">GitHub</a>
+        </div>
 
-  <section id="skills">
-    <h2>Languages & Tools</h2>
-    <p>Java | JavaScript | PHP | HTML | CSS | MySQL | Android | Bootstrap</p>
-  </section>
+        <div class="visitor">
+          <img src="https://profile-counter.glitch.me/intanhbrh/count.svg" alt="Visitor Count" />
+        </div>
+      </div>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <p>See my work on <a href="https://github.com/intanhbrh">GitHub</a>.</p>
-  </section>
+    <!-- About -->
+    <section id="about" class="container">
+      <h2>About Me</h2>
+      <p>I’m a final-year Software Engineering student at Multimedia University (MMU), Malaysia. I’m passionate about web design, web development, mobile apps, and open-source contributions. Currently exploring frameworks and AI technologies.</p>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:intanhbrh@gmail.com">intanhbrh@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/intanhbrh/">intanhbrh</a></p>
-  </section>
+    <!-- Skills -->
+    <section id="skills" class="container">
+      <h2>Languages & Tools</h2>
+      <p class="skills-logos">
+        <!-- skill icons via skillicons.dev -->
+        <img src="https://skillicons.dev/icons?i=java,js,php,cpp,html,css,mysql,android,bootstrap,git,linux" alt="skills" />
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="container">
+      <h2>Projects</h2>
+
+      <div class="projects-grid">
+        <article class="card">
+          <h3>Student Event Portal</h3>
+          <p>Event registration system — React, Node.js, Express, MongoDB. Login, admin dashboard, event sign-ups.</p>
+          <p class="card-links">
+            <a href="https://github.com/intanhbrh/your-project-repo" target="_blank" rel="noopener">View on GitHub</a>
+            <!-- replace URL with your repo -->
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Face Recognition Attendance</h3>
+          <p>Smart attendance using ML and webcam integration. Built with Python and OpenCV.</p>
+          <p class="card-links"><a href="https://github.com/intanhbrh/your-project-repo2" target="_blank" rel="noopener">View on GitHub</a></p>
+        </article>
+
+        <article class="card">
+          <h3>SafePoint (Emergency App)</h3>
+          <p>One-touch emergency contact + reporting app for quick help. Mobile UI and backend API.</p>
+          <p class="card-links"><a href="https://github.com/intanhbrh/your-project-repo3" target="_blank" rel="noopener">View on GitHub</a></p>
+        </article>
+      </div>
+
+      <p class="more-link">More projects on <a href="https://github.com/intanhbrh" target="_blank" rel="noopener">GitHub</a></p>
+
+      <!-- optional GitHub stat cards (images) -->
+      <div class="stats-row">
+        <img src="https://github-readme-stats.vercel.app/api?username=intanhbrh&show_icons=true&theme=tokyonight" alt="GitHub stats" />
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=intanhbrh&layout=compact&theme=tokyonight" alt="Top languages" />
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:intanhbrh@gmail.com">intanhbrh@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/intanhbrh/" target="_blank" rel="noopener">/in/intanhbrh</a></p>
+    </section>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Intan Habriah — Built with ❤️</p>
+    </footer>
+  </main>
+
+  <script>
+    // simple script for dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
