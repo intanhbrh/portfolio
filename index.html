@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intan Nur Habriah | Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,6 +19,7 @@
             --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
             --dark-bg: #0a0a0a;
             --card-bg: #1a1a1a;
             --text-primary: #ffffff;
@@ -23,14 +27,13 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--dark-bg);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
@@ -59,8 +62,11 @@
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
+            font-family: 'Space Grotesk', sans-serif;
             transition: all 0.3s ease;
             position: relative;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
 
         nav a::after {
@@ -103,9 +109,23 @@
             animation: float 6s ease-in-out infinite;
         }
 
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--gradient-3);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.2;
+            right: -100px;
+            bottom: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+
         @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(50px, 50px); }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.1); }
         }
 
         .hero-content {
@@ -114,21 +134,25 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 700;
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 800;
             margin-bottom: 1rem;
             background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: fadeInUp 0.8s ease;
+            letter-spacing: -2px;
         }
 
         .hero p {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(1rem, 2vw, 1.5rem);
             color: var(--text-secondary);
             margin-bottom: 2rem;
             animation: fadeInUp 0.8s ease 0.2s backwards;
+            font-weight: 400;
         }
 
         @keyframes fadeInUp {
@@ -160,6 +184,7 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .btn-primary {
@@ -191,10 +216,13 @@
         }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 3rem;
             text-align: center;
             position: relative;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
         .section-title::after {
@@ -224,10 +252,28 @@
 
         .about-card {
             background: var(--card-bg);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover::before {
+            transform: scaleX(1);
         }
 
         .about-card:hover {
@@ -237,12 +283,19 @@
         }
 
         .about-card h3 {
-            font-size: 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
             background: var(--gradient-2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-weight: 700;
+        }
+
+        .about-card p {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
         }
 
         /* Education Section */
@@ -287,20 +340,24 @@
         }
 
         .education-item h3 {
-            font-size: 1.5rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.6rem;
             margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .education-item .date {
             color: var(--text-secondary);
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .education-item .gpa {
             color: #43e97b;
             font-weight: 600;
             margin-bottom: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .courses {
@@ -312,10 +369,11 @@
 
         .course-tag {
             background: rgba(102, 126, 234, 0.2);
-            padding: 0.3rem 0.8rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
             border: 1px solid rgba(102, 126, 234, 0.3);
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         /* Skills Section */
@@ -341,11 +399,14 @@
         }
 
         .skill-category h3 {
+            font-family: 'Sora', sans-serif;
             margin-bottom: 1.5rem;
             background: var(--gradient-3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-weight: 700;
+            font-size: 1.3rem;
         }
 
         .skill-list {
@@ -356,11 +417,12 @@
 
         .skill-item {
             background: rgba(79, 172, 254, 0.2);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 25px;
             font-size: 0.9rem;
             border: 1px solid rgba(79, 172, 254, 0.3);
             transition: all 0.3s ease;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .skill-item:hover {
@@ -371,8 +433,8 @@
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s ease;
@@ -389,50 +451,99 @@
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(0, 242, 254, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(0, 242, 254, 0.3);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(0, 242, 254, 0.3);
+            border-color: rgba(0, 242, 254, 0.5);
         }
 
         .project-image {
             width: 100%;
-            height: 200px;
+            height: 250px;
             background: var(--gradient-3);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::after {
+            content: 'Click to view details';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            font-family: 'Space Grotesk', sans-serif;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image::after {
+            transform: translateY(0);
         }
 
         .project-content {
             padding: 2rem;
+            position: relative;
+            z-index: 2;
         }
 
         .project-content h3 {
+            font-family: 'Sora', sans-serif;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
         }
 
         .project-content p {
             color: var(--text-secondary);
             margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
         }
 
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .tech-tag {
             background: rgba(67, 233, 123, 0.2);
-            padding: 0.3rem 0.8rem;
+            padding: 0.4rem 1rem;
             border-radius: 15px;
             font-size: 0.8rem;
             border: 1px solid rgba(67, 233, 123, 0.3);
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .project-links {
@@ -445,10 +556,132 @@
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .project-link:hover {
             color: #00f2fe;
+        }
+
+        /* Project Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            margin: 3% auto;
+            padding: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 90%;
+            max-width: 900px;
+            border-radius: 20px;
+            position: relative;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .modal-header h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .close {
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            color: var(--text-secondary);
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .modal-image-placeholder {
+            height: 200px;
+            background: var(--gradient-3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            opacity: 0.8;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .modal-section p, .modal-section ul {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .modal-section ul {
+            padding-left: 1.5rem;
+        }
+
+        .modal-section ul li {
+            margin-bottom: 0.5rem;
         }
 
         /* Experience Section */
@@ -487,16 +720,19 @@
         }
 
         .experience-header h3 {
+            font-family: 'Sora', sans-serif;
             font-size: 1.5rem;
             background: var(--gradient-2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-weight: 700;
         }
 
         .experience-date {
             color: var(--text-secondary);
             font-size: 0.9rem;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .experience-item ul {
@@ -508,6 +744,7 @@
             margin-bottom: 0.5rem;
             position: relative;
             color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
         }
 
         .experience-item ul li::before {
@@ -533,9 +770,11 @@
         }
 
         .contact-content p {
+            font-family: 'Inter', sans-serif;
             font-size: 1.2rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
+            line-height: 1.8;
         }
 
         .contact-links {
@@ -557,6 +796,7 @@
             border-radius: 50px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .contact-link:hover {
@@ -571,6 +811,7 @@
             padding: 2rem;
             color: var(--text-secondary);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         /* Responsive */
@@ -585,6 +826,15 @@
 
             .education-timeline {
                 padding-left: 1.5rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .modal-header h2 {
+                font-size: 2rem;
             }
         }
 
@@ -620,6 +870,7 @@
         <div class="hero-content">
             <h1>Intan Nur Habriah</h1>
             <p>Software Engineering Student | Web & Mobile Developer</p>
+<br> <p>I am currently in my final year of a Bachelor’s in Computer Science (Software Engineering) at Multimedia University. In November 2025, I will begin a lighter semester with only two subjects, which allows me to be available for remote, part-time, or freelance opportunities until February 2026. Starting March 2026, I will begin my 3-month internship, with an expected graduation in November 2026.</p></br>
             <div class="cta-buttons">
                 <a href="#contact" class="btn btn-primary">Get In Touch</a>
                 <a href="https://github.com/intanhbrh" target="_blank" class="btn btn-secondary">View GitHub</a>
@@ -737,7 +988,7 @@
     <section id="projects">
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid scroll-animate">
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('safepoint')">
                 <div class="project-image">📱</div>
                 <div class="project-content">
                     <h3>SafePoint</h3>
@@ -749,12 +1000,12 @@
                         <span class="tech-tag">XML</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/intanhbrh" class="project-link" target="_blank">View Code →</a>
+                        <a href="https://github.com/intanhbrh" class="project-link" target="_blank" onclick="event.stopPropagation()">View Code →</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('deliten')">
                 <div class="project-image" style="background: var(--gradient-2);">🍔</div>
                 <div class="project-content">
                     <h3>DeliTEN</h3>
@@ -766,12 +1017,12 @@
                         <span class="tech-tag">JavaScript</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/intanhbrh" class="project-link" target="_blank">View Code →</a>
+                        <a href="https://github.com/intanhbrh" class="project-link" target="_blank" onclick="event.stopPropagation()">View Code →</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('turing')">
                 <div class="project-image" style="background: var(--gradient-4);">⚙️</div>
                 <div class="project-content">
                     <h3>Theory of Computation</h3>
@@ -781,12 +1032,12 @@
                         <span class="tech-tag">Algorithm Design</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/MMUGroup5/TT3L_TheoryASS" class="project-link" target="_blank">View Code →</a>
+                        <a href="https://github.com/MMUGroup5/TT3L_TheoryASS" class="project-link" target="_blank" onclick="event.stopPropagation()">View Code →</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" onclick="openModal('digitals')">
                 <div class="project-image" style="background: var(--gradient-1);">💻</div>
                 <div class="project-content">
                     <h3>Fundamentals of Digitals</h3>
@@ -796,19 +1047,192 @@
                         <span class="tech-tag">Circuit Design</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/intanhbrh/Fundamentals-of-Digitals-Project" class="project-link" target="_blank">View Code →</a>
+                        <a href="https://github.com/intanhbrh/Fundamentals-of-Digitals-Project" class="project-link" target="_blank" onclick="event.stopPropagation()">View Code →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Project Modals -->
+    <div id="safepoint-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>SafePoint 📱</h2>
+                <span class="close" onclick="closeModal('safepoint')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-gallery">
+                    <div class="modal-image-placeholder">📱</div>
+                    <div class="modal-image-placeholder" style="background: var(--gradient-2);">🚨</div>
+                    <div class="modal-image-placeholder" style="background: var(--gradient-4);">📍</div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Project Overview</h3>
+                    <p>SafePoint is a comprehensive emergency response mobile application designed to enhance personal safety through technology. The app provides users with quick access to emergency services, incident reporting capabilities, and vital safety resources all in one place.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>One-touch emergency alert system with GPS location sharing</li>
+                        <li>Real-time incident reporting with photo and description uploads</li>
+                        <li>Safety resources including emergency contacts and first aid guides</li>
+                        <li>User authentication and profile management via Firebase</li>
+                        <li>Push notifications for emergency alerts</li>
+                        <li>Interactive map showing nearby incidents and safe zones</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Technologies Used</h3>
+                    <p>Built with Java and Android Studio, utilizing Firebase for real-time database management, authentication, and cloud storage. The app integrates Google Maps API for location services and implements Material Design principles for an intuitive user interface.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Development Process</h3>
+                    <p>This Final Year Project involved comprehensive requirements gathering, system design, prototyping, and iterative development. The project emphasizes user-centered design with a focus on accessibility and ease of use during emergency situations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="deliten-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>DeliTEN 🍔</h2>
+                <span class="close" onclick="closeModal('deliten')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-gallery">
+                    <div class="modal-image-placeholder" style="background: var(--gradient-2);">🍔</div>
+                    <div class="modal-image-placeholder" style="background: var(--gradient-3);">🛒</div>
+                    <div class="modal-image-placeholder" style="background: var(--gradient-5);">📦</div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Project Overview</h3>
+                    <p>DeliTEN is a full-stack web-based food ordering system developed specifically for the UNITEN campus community. The platform connects students with campus food vendors, streamlining the ordering process and reducing wait times.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>User registration and authentication system with role-based access</li>
+                        <li>Browse menu items with detailed descriptions and pricing</li>
+                        <li>Shopping cart functionality with order customization</li>
+                        <li>Real-time order tracking and status updates</li>
+                        <li>Vendor dashboard for managing menu items and orders</li>
+                        <li>Admin panel for system management and analytics</li>
+                        <li>Responsive design for mobile and desktop access</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Technologies Used</h3>
+                    <p>Developed using PHP for server-side logic, MySQL for database management, and modern HTML/CSS/JavaScript for the front-end. The application follows MVC architecture and implements secure session management and SQL injection prevention.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Impact</h3>
+                    <p>This Diploma Final Year Project aimed to solve real campus challenges by reducing food ordering queues and improving the overall dining experience for UNITEN students. The system was designed with scalability in mind to accommodate future campus expansion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="turing-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Turing Machine Simulator ⚙️</h2>
+                <span class="close" onclick="closeModal('turing')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-gallery">
+                    <div class="modal-image-placeholder" style="background: var(--gradient-4);">⚙️</div>
+                    <div class="modal-image-placeholder" style="background: var(--gradient-1);">🔄</div>
+                    <div class="modal-image-placeholder" style="background: var(--gradient-3);">📊</div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Project Overview</h3>
+                    <p>An educational Turing Machine Simulator developed as part of the Theory of Computation coursework. This project demonstrates the fundamental concepts of computational theory and automata through an interactive simulation tool.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Visual representation of Turing machine operations</li>
+                        <li>Step-by-step execution with animation</li>
+                        <li>Custom tape input and state configuration</li>
+                        <li>Support for multiple computation examples</li>
+                        <li>State transition diagram visualization</li>
+                        <li>Educational mode with explanations</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Technologies Used</h3>
+                    <p>Implemented using Python/Java with emphasis on algorithm design and data structures. The simulator leverages object-oriented programming principles to model states, transitions, and tape operations accurately.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Team Collaboration</h3>
+                    <p>Developed collaboratively with team members, utilizing Git for version control and implementing agile development practices. The project enhanced understanding of theoretical computer science concepts through practical implementation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="digitals-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Fundamentals of Digitals 💻</h2>
+                <span class="close" onclick="closeModal('digitals')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-gallery">
+                    <div class="modal-image-placeholder" style="background: var(--gradient-1);">💻</div>
+                    <div class="modal-image-placeholder" style="background: var(--gradient-2);">🔌</div>
+                    <div class="modal-image-placeholder" style="background: var(--gradient-4);">⚡</div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Project Overview</h3>
+                    <p>A comprehensive digital logic design project exploring fundamental computing concepts at the hardware level. This project bridges the gap between theoretical knowledge and practical circuit implementation.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Digital circuit design and simulation</li>
+                        <li>Boolean algebra implementation</li>
+                        <li>Logic gate combinations and optimization</li>
+                        <li>Sequential and combinational circuit design</li>
+                        <li>Truth table generation and analysis</li>
+                        <li>Circuit testing and verification</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Technologies Used</h3>
+                    <p>Utilized digital logic simulation software and hardware prototyping tools. The project involved designing circuits using logic gates, flip-flops, and other fundamental digital components.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Learning Outcomes</h3>
+                    <p>This project provided deep insights into how computers work at the fundamental level, including binary arithmetic, memory systems, and the building blocks of modern computing devices. It strengthened problem-solving skills through logical circuit optimization.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Experience Section -->
     <section id="experience">
         <h2 class="section-title">Experience</h2>
         <div class="experience-list scroll-animate">
-
-              <div class="experience-item">
+            <div class="experience-item">
                 <div class="experience-header">
                     <div>
                         <h3>Web/IT Assistant</h3>
@@ -823,6 +1247,7 @@
                     <li>Ensured accurate representation of company information and compliance</li>
                 </ul>
             </div>
+
             <div class="experience-item">
                 <div class="experience-header">
                     <div>
@@ -849,7 +1274,6 @@
                 </div>
                 <ul>
                     <li>Developed customer service skills in fast-paced retail environment</li>
-            
                 </ul>
             </div>
 
@@ -899,11 +1323,30 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Intan Nur Habriah. Designed & Built with passion.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Available for remote opportunities | Nov 2025 onwards</p>
+        <p>© 2025 Intan Nur Habriah.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Available for remote opportunities | Nov 2025 onwards until my Internship </p>
     </footer>
 
     <script>
+        // Modal Functions
+        function openModal(projectId) {
+            document.getElementById(projectId + '-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(projectId) {
+            document.getElementById(projectId + '-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
         // Scroll Animation
         const observerOptions = {
             threshold: 0.1,
