@@ -3,351 +3,910 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intan Nur Habriah - Software Engineer</title>
-    <meta name="description" content="Computer Science student specializing in Software Engineering. Available for remote work opportunities.">
-    <link rel="stylesheet" href="style.css">
+    <title>Intan Nur Habriah | Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --dark-bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark-bg);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-1);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .about-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Education Section */
+        .education-timeline {
+            position: relative;
+            padding-left: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .education-timeline.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: var(--gradient-1);
+        }
+
+        .education-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            border: 3px solid var(--dark-bg);
+        }
+
+        .education-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .gpa {
+            color: #43e97b;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .course-tag {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .skills-grid.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-item {
+            background: rgba(79, 172, 254, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+            background: rgba(79, 172, 254, 0.3);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .projects-grid.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 242, 254, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: var(--gradient-3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(67, 233, 123, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(67, 233, 123, 0.3);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #00f2fe;
+        }
+
+        /* Experience Section */
+        .experience-list {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .experience-list.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .experience-item {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            border-color: rgba(245, 87, 108, 0.5);
+            box-shadow: 0 10px 40px rgba(245, 87, 108, 0.2);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-header h3 {
+            font-size: 1.5rem;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .experience-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .experience-item ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .experience-item ul li::before {
+            content: '▹';
+            position: absolute;
+            left: -1.5rem;
+            color: #43e97b;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .contact-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .education-timeline {
+                padding-left: 1.5rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">INH</div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="fade-in-up">Intan Nur Habriah</h1>
-                    <p class="hero-subtitle fade-in-up">Software Engineering Student | Web Developer | Problem Solver</p>
-                    <p class="hero-description fade-in-up">Passionate about building innovative software solutions with real-world impact. Currently seeking remote opportunities to contribute my skills while completing my final semester.</p>
-                    <div class="hero-stats fade-in-up">
-                        <div class="stat-item">
-                            <div class="stat-number">3.54</div>
-                            <div class="stat-label">Current GPA</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">5+</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">2</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                    </div>
-                    <div class="cta-buttons fade-in-up">
-                        <a href="#projects" class="btn btn-primary">View My Work</a>
-                        <a href="#contact" class="btn btn-secondary">Hire Me</a>
-                    </div>
-                </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Intan Nur Habriah</h1>
+            <p>Software Engineering Student | Web & Mobile Developer</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="https://github.com/intanhbrh" target="_blank" class="btn btn-secondary">View GitHub</a>
             </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>👋 Hello! I'm Intan</h3>
-                        <p>I'm a final-year Computer Science student at Multimedia University, specializing in Software Engineering. With a strong academic record (CGPA 3.54/4.00) and hands-on experience from internships and projects, I'm passionate about creating software solutions that make a difference.</p>
-                        
-                        <p>My journey in tech began with a diploma from UNITEN, where I graduated with a CGPA of 3.63/4.00 and earned Dean's List honors for 4 consecutive semesters. Since then, I've developed web applications, mobile apps, and automation systems that solve real-world problems.</p>
-                        
-                        <p><strong>🎯 What I Bring:</strong></p>
-                        <ul class="about-list">
-                            <li>Strong foundation in software engineering principles and methodologies</li>
-                            <li>Experience building full-stack web and mobile applications</li>
-                            <li>Proven ability to learn new technologies quickly</li>
-                            <li>Excellent problem-solving and analytical skills</li>
-                            <li>Bilingual: Fluent in Malay and English</li>
-                        </ul>
-
-                        <p><strong>💼 Currently Available:</strong> I'm seeking remote work opportunities starting November 2024 with flexible scheduling to accommodate my final semester (only 2 subjects). I can commit to meaningful work while completing my studies.</p>
-
-                        <div class="education-section">
-                            <h3>🎓 Education</h3>
-                            <div class="edu-item">
-                                <div class="edu-header">
-                                    <h4>Bachelor of Computer Science (Hons.) - Software Engineering</h4>
-                                    <span class="edu-year">Oct 2023 - Mar 2026</span>
-                                </div>
-                                <p class="edu-school">Multimedia University (MMU), Cyberjaya</p>
-                                <p class="edu-gpa">Current GPA: 3.54/4.00 | CGPA: 3.11/4.00</p>
-                                <div class="edu-courses">
-                                    <strong>Key Courses:</strong> Object-Oriented Programming & Data Structures, Computer Networks, OO Analysis & Design, Software Requirements Engineering, Algorithm Design & Analysis, Software Design, Software Reliability & Quality Assurance
-                                </div>
-                            </div>
-
-                            <div class="edu-item">
-                                <div class="edu-header">
-                                    <h4>Diploma in Computer Science</h4>
-                                    <span class="edu-year">Jun 2020 - Feb 2023</span>
-                                </div>
-                                <p class="edu-school">Universiti Tenaga Nasional (UNITEN), Putrajaya</p>
-                                <p class="edu-gpa">CGPA: 3.63/4.00 | Dean's List (4 Semesters) | MUET Band 4.0</p>
-                                <div class="edu-courses">
-                                    <strong>Key Courses:</strong> System Analysis & Design, Data Structures & Algorithms, Web Programming, Data & Computer Security, Database Systems, Multimedia Technologies
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="experience-section">
-                            <h3>💼 Work Experience</h3>
-                            <div class="exp-item">
-                                <div class="exp-header">
-                                    <h4>Web Designer/Developer Intern</h4>
-                                    <span class="exp-year">Jun 2022 - Aug 2022</span>
-                                </div>
-                                <p class="exp-company">YODD Sdn Bhd, Petaling Jaya</p>
-                                <ul class="exp-list">
-                                    <li>Developed e-commerce website using WordPress and Oxygen Builder</li>
-                                    <li>Created automated chatbot workflows with Uchat to improve customer service efficiency</li>
-                                    <li>Implemented plugin integrations and optimized user interactions</li>
-                                    <li>Gained practical experience in web design and client communication</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skills-container">
-                        <h3>💻 Technical Skills</h3>
-                        <div class="skills-category">
-                            <h4>Programming Languages</h4>
-                            <div class="skills-grid">
-                                <div class="skill-item">Java</div>
-                                <div class="skill-item">Python</div>
-                                <div class="skill-item">PHP</div>
-                                <div class="skill-item">JavaScript</div>
-                                <div class="skill-item">C++</div>
-                                <div class="skill-item">HTML/CSS</div>
-                            </div>
-                        </div>
-
-                        <div class="skills-category">
-                            <h4>Databases</h4>
-                            <div class="skills-grid">
-                                <div class="skill-item">MySQL</div>
-                                <div class="skill-item">Firebase</div>
-                            </div>
-                        </div>
-
-                        <div class="skills-category">
-                            <h4>Tools & Platforms</h4>
-                            <div class="skills-grid">
-                                <div class="skill-item">VS Code</div>
-                                <div class="skill-item">Android Studio</div>
-                                <div class="skill-item">Git/GitHub</div>
-                                <div class="skill-item">WordPress</div>
-                                <div class="skill-item">XAMPP</div>
-                                <div class="skill-item">Oxygen Builder</div>
-                            </div>
-                        </div>
-
-                        <div class="skills-category">
-                            <h4>Soft Skills</h4>
-                            <div class="skills-grid">
-                                <div class="skill-item">Problem Solving</div>
-                                <div class="skill-item">Time Management</div>
-                                <div class="skill-item">Adaptability</div>
-                                <div class="skill-item">Quick Learner</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="projects-grid">
-                    
-                    <div class="project-card">
-                        <div class="project-number">01</div>
-                        <h3>SafePoint - Emergency Response Mobile App</h3>
-                        <p class="project-type">Degree Final Year Project</p>
-                        <p>Android-based mobile application providing one-touch emergency alerts, incident reporting, and safety resources. Developed complete UI/UX design and tested on physical Android devices.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Android Studio</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">UI/UX Design</span>
-                        </div>
-                        <div class="project-features">
-                            <strong>Key Features:</strong>
-                            <ul>
-                                <li>One-touch emergency alert system</li>
-                                <li>Real-time incident reporting</li>
-                                <li>Safety resources and guidelines</li>
-                                <li>Firebase backend integration</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-number">02</div>
-                        <h3>DeliTEN - Online Food Ordering System</h3>
-                        <p class="project-type">Diploma Final Year Project</p>
-                        <p>Web-based food ordering system designed to simplify the ordering process for UNITEN students and staff. Complete full-stack implementation with user authentication and order management.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">HTML/CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-features">
-                            <strong>Key Features:</strong>
-                            <ul>
-                                <li>User authentication and profile management</li>
-                                <li>Menu browsing and cart functionality</li>
-                                <li>Order tracking system</li>
-                                <li>Admin dashboard for vendors</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-number">03</div>
-                        <h3>E-Commerce Website</h3>
-                        <p class="project-type">Internship Project - YODD Sdn Bhd</p>
-                        <p>Developed a fully functional e-commerce platform using WordPress and Oxygen Builder. Implemented custom features and integrated chatbot automation for customer service.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">WordPress</span>
-                            <span class="tech-tag">Oxygen Builder</span>
-                            <span class="tech-tag">Uchat</span>
-                            <span class="tech-tag">PHP</span>
-                        </div>
-                        <div class="project-features">
-                            <strong>Achievements:</strong>
-                            <ul>
-                                <li>Built responsive e-commerce site</li>
-                                <li>Automated customer service workflows</li>
-                                <li>Improved user experience and engagement</li>
-                                <li>Integrated multiple payment gateways</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-number">04</div>
-                        <h3>Theory of Computation Assignment</h3>
-                        <p class="project-type">Academic Project</p>
-                        <p>Collaborative project implementing computational theory concepts including finite automata, regular expressions, and Turing machines.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Theory</span>
-                            <span class="tech-tag">Algorithms</span>
-                            <span class="tech-tag">Documentation</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/MMUGroup5/TT3L_TheoryASS" target="_blank">View on GitHub →</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-number">05</div>
-                        <h3>Fundamentals of Digital Project</h3>
-                        <p class="project-type">Academic Project</p>
-                        <p>Hands-on project exploring digital systems fundamentals, logic circuits, and hardware-software integration principles.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Digital Logic</span>
-                            <span class="tech-tag">Circuit Design</span>
-                            <span class="tech-tag">Hardware</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/intanhbrh/Fundamentals-of-Digitals-Project" target="_blank">View on GitHub →</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">Let's Build Something Great Together</h2>
-                <div class="contact-content">
-                    <p class="contact-intro">I'm actively seeking remote software engineering opportunities with flexible scheduling. Whether you need a dedicated developer for your team or a freelancer for your project, I'd love to hear from you!</p>
-                    
-                    <div class="contact-highlight">
-                        <h3>🚀 Available for Remote Work</h3>
-                        <p>Starting November 2024 | Flexible Schedule | Final Year Student</p>
-                    </div>
-
-                    <div class="contact-grid">
-                        <a href="mailto:intanhbrh@gmail.com" class="contact-card">
-                            <div class="contact-icon">📧</div>
-                            <h4>Email</h4>
-                            <p>intanhbrh@gmail.com</p>
-                        </a>
-
-                        <a href="https://linkedin.com/in/intanhbrh" target="_blank" class="contact-card">
-                            <div class="contact-icon">💼</div>
-                            <h4>LinkedIn</h4>
-                            <p>linkedin.com/in/intanhbrh</p>
-                        </a>
-
-                        <a href="https://github.com/intanhbrh" target="_blank" class="contact-card">
-                            <div class="contact-icon">💻</div>
-                            <h4>GitHub</h4>
-                            <p>github.com/intanhbrh</p>
-                        </a>
-
-                        <a href="tel:+60112337664" class="contact-card">
-                            <div class="contact-icon">📱</div>
-                            <h4>Phone</h4>
-                            <p>+60 11-2337 7664</p>
-                        </a>
-                    </div>
-
-                    <div class="contact-location">
-                        <p>📍 Based in Kuala Lumpur, Malaysia | Open to Remote Work Globally</p>
-                    </div>
-
-                    <div class="contact-cta">
-                        <h3>Why Work With Me?</h3>
-                        <div class="why-hire-grid">
-                            <div class="why-item">
-                                <span class="why-icon">🎓</span>
-                                <h4>Strong Academic Foundation</h4>
-                                <p>Consistent Dean's List performance with practical software engineering knowledge</p>
-                            </div>
-                            <div class="why-item">
-                                <span class="why-icon">💡</span>
-                                <h4>Real-World Experience</h4>
-                                <p>Proven track record through internships and successful project delivery</p>
-                            </div>
-                            <div class="why-item">
-                                <span class="why-icon">⚡</span>
-                                <h4>Quick Learner</h4>
-                                <p>Adaptable and eager to master new technologies and frameworks</p>
-                            </div>
-                            <div class="why-item">
-                                <span class="why-icon">🎯</span>
-                                <h4>Results-Driven</h4>
-                                <p>Focused on delivering quality solutions that exceed expectations</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Intan Nur Habriah. Designed & Built with passion.</p>
-            <p class="footer-tagline">Turning ideas into elegant software solutions ✨</p>
         </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content scroll-animate">
+            <div class="about-card">
+                <h3>🎓 Student</h3>
+                <p>Final-year Computer Science student at Multimedia University, specializing in Software Engineering with a current GPA of 3.54.</p>
+            </div>
+            <div class="about-card">
+                <h3>💻 Developer</h3>
+                <p>Passionate about building web and mobile applications. Experienced in full-stack development with hands-on project experience.</p>
+            </div>
+            <div class="about-card">
+                <h3>🚀 Learner</h3>
+                <p>Eager to learn new technologies and continuously improve my skills. Always seeking opportunities to grow in software engineering.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-timeline scroll-animate">
+            <div class="education-item">
+                <h3>Bachelor of Computer Science (Hons.)</h3>
+                <p><strong>Multimedia University (MMU), Cyberjaya</strong></p>
+                <p class="date">October 2023 - March 2026 (Expected)</p>
+                <p class="gpa">Current GPA: 3.54/4.00 | Cumulative GPA: 3.11/4.00</p>
+                <p><strong>Specialization:</strong> Software Engineering</p>
+                <div class="courses">
+                    <span class="course-tag">Object-Oriented Programming</span>
+                    <span class="course-tag">Software Design</span>
+                    <span class="course-tag">Algorithm Design & Analysis</span>
+                    <span class="course-tag">Software Requirements Engineering</span>
+                    <span class="course-tag">Computer Networks</span>
+                    <span class="course-tag">Quality Assurance</span>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <h3>Diploma in Computer Science</h3>
+                <p><strong>Universiti Tenaga Nasional (UNITEN), Putrajaya</strong></p>
+                <p class="date">June 2020 - February 2023</p>
+                <p class="gpa">CGPA: 3.63/4.00 | Dean's List (4 Semesters)</p>
+                <div class="courses">
+                    <span class="course-tag">Web Programming</span>
+                    <span class="course-tag">Data Structures & Algorithms</span>
+                    <span class="course-tag">Database Systems</span>
+                    <span class="course-tag">System Analysis & Design</span>
+                    <span class="course-tag">OOP</span>
+                    <span class="course-tag">Computer Security</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid scroll-animate">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Java</span>
+                    <span class="skill-item">PHP</span>
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">HTML/CSS</span>
+                    <span class="skill-item">C++</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Frameworks & Tools</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Android Studio</span>
+                    <span class="skill-item">WordPress</span>
+                    <span class="skill-item">VS Code</span>
+                    <span class="skill-item">Git/GitHub</span>
+                    <span class="skill-item">XAMPP</span>
+                    <span class="skill-item">Oxygen Builder</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Databases & Backend</h3>
+                <div class="skill-list">
+                    <span class="skill-item">MySQL</span>
+                    <span class="skill-item">Firebase</span>
+                    <span class="skill-item">RESTful APIs</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Problem Solving</span>
+                    <span class="skill-item">Adaptability</span>
+                    <span class="skill-item">Time Management</span>
+                    <span class="skill-item">Team Collaboration</span>
+                    <span class="skill-item">Self-Learning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid scroll-animate">
+            <div class="project-card">
+                <div class="project-image">📱</div>
+                <div class="project-content">
+                    <h3>SafePoint</h3>
+                    <p>Emergency response mobile app with one-touch alerts, incident reporting, and safety resources. Final Year Project (Degree).</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Android Studio</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">XML</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/intanhbrh" class="project-link" target="_blank">View Code →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background: var(--gradient-2);">🍔</div>
+                <div class="project-content">
+                    <h3>DeliTEN</h3>
+                    <p>Online food ordering system for UNITEN campus. Full-stack web application with user authentication and order management. Final Year Project (Diploma).</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/intanhbrh" class="project-link" target="_blank">View Code →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background: var(--gradient-4);">⚙️</div>
+                <div class="project-content">
+                    <h3>Theory of Computation</h3>
+                    <p>Turing Machine Simulator developed as part of academic coursework. Team collaboration project.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python/Java</span>
+                        <span class="tech-tag">Algorithm Design</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/MMUGroup5/TT3L_TheoryASS" class="project-link" target="_blank">View Code →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background: var(--gradient-1);">💻</div>
+                <div class="project-content">
+                    <h3>Fundamentals of Digitals</h3>
+                    <p>Digital logic design and implementation project exploring fundamental computing concepts.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Digital Logic</span>
+                        <span class="tech-tag">Circuit Design</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/intanhbrh/Fundamentals-of-Digitals-Project" class="project-link" target="_blank">View Code →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-list scroll-animate">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Web Designer Intern</h3>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">YODD Sdn Bhd, Petaling Jaya</p>
+                    </div>
+                    <span class="experience-date">June 2022 - August 2022</span>
+                </div>
+                <ul>
+                    <li>Developed e-commerce website using WordPress and Oxygen Builder</li>
+                    <li>Created automated customer service workflows using Uchat chatbot platform</li>
+                    <li>Improved website user experience through plugin integration and UI optimization</li>
+                    <li>Gained practical experience in client communication and project delivery</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Retail Sales Associate (Part-Time)</h3>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">2nd Street Bundle Shop, Kuala Lumpur</p>
+                    </div>
+                    <span class="experience-date">March 2023 - April 2023</span>
+                </div>
+                <ul>
+                    <li>Developed customer service skills in fast-paced retail environment</li>
+                    <li>Enhanced communication and interpersonal abilities</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Service Crew</h3>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">B.bap Korean Food, Kuala Lumpur</p>
+                    </div>
+                    <span class="experience-date">October 2023</span>
+                </div>
+                <ul>
+                    <li>Strengthened time management and teamwork abilities</li>
+                    <li>Adapted quickly to new work environment and responsibilities</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-content scroll-animate">
+            <p>I'm currently seeking remote software engineering opportunities for November 2025 onwards. Let's build something amazing together!</p>
+            <a href="mailto:intanhbrh@gmail.com" class="btn btn-primary">Email Me</a>
+            
+            <div class="contact-links">
+                <a href="mailto:intanhbrh@gmail.com" class="contact-link" target="_blank">
+                    <span>📧</span>
+                    <span>intanhbrh@gmail.com</span>
+                </a>
+                <a href="https://linkedin.com/in/intanhbrh" class="contact-link" target="_blank">
+                    <span>💼</span>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/intanhbrh" class="contact-link" target="_blank">
+                    <span>💻</span>
+                    <span>GitHub</span>
+                </a>
+                <a href="tel:+60112337664" class="contact-link">
+                    <span>📱</span>
+                    <span>+60 11-2337 7664</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Intan Nur Habriah. Designed & Built with passion.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Available for remote opportunities | Nov 2025 onwards</p>
     </footer>
 
     <script>
-        // Smooth scrolling
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -361,44 +920,26 @@
             });
         });
 
-        // Active navigation on scroll
+        // Add active state to nav on scroll
         window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
             let current = '';
+            const sections = document.querySelectorAll('section');
+            
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
                 if (scrollY >= (sectionTop - 200)) {
                     current = section.getAttribute('id');
                 }
             });
 
-            navLinks.forEach(link => {
+            document.querySelectorAll('nav a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
+                if (link.getAttribute('href').slice(1) === current) {
                     link.classList.add('active');
                 }
             });
         });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.project-card, .edu-item, .exp-item, .contact-card, .why-item').forEach(el => {
-            observer.observe(el);
-        });
     </script>
 </body>
-</html>
+</html
