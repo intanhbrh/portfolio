@@ -1023,14 +1023,17 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="openModal('turing')">
+            <div class="project-card" onclick="openModal('vending')">
                 <div class="project-image" style="background: var(--gradient-4);">⚙️</div>
                 <div class="project-content">
-                    <h3>Theory of Computation</h3>
-                    <p>Turing Machine Simulator developed as part of academic coursework. Team collaboration project.</p>
+                    <h3>Vending Machine Simulation</h3>
+                    <p>A Python-based simulation of a vending machine using Automata Theory (NFA & DFA). Developed for Theory of Computation course.</p>
                     <div class="tech-stack">
                         <span class="tech-tag">Python/Java</span>
                         <span class="tech-tag">Algorithm Design</span>
+                        <span class="tech-tag">Automata Theory</span>
+                        <span class="tech-tag">NFA</span>
+                        <span class="tech-tag">DFA</span>
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/MMUGroup5/TT3L_TheoryASS" class="project-link" target="_blank" onclick="event.stopPropagation()">View Code →</a>
@@ -1143,11 +1146,11 @@
         </div>
     </div>
 
-    <div id="turing-modal" class="modal">
+    <div id="vending-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Turing Machine Simulator ⚙️</h2>
-                <span class="close" onclick="closeModal('turing')">&times;</span>
+                <span class="close" onclick="closeModal('vending')">&times;</span>
             </div>
             <div class="modal-body">
                 <div class="modal-image-gallery">
@@ -1158,29 +1161,35 @@
                 
                 <div class="modal-section">
                     <h3>Project Overview</h3>
-                    <p>An educational Turing Machine Simulator developed as part of the Theory of Computation coursework. This project demonstrates the fundamental concepts of computational theory and automata through an interactive simulation tool.</p>
+                    <p>This project simulates a vending machine using <strong>Automata Theory</strong>. The machine accepts RM0.50 and RM1 coins to purchase items priced between RM2.00 and RM10.00. It was implemented using both <strong>Nondeterministic Finite Automata (NFA)</strong> and <strong>Deterministic Finite Automata (DFA)</strong> models, with a Python program to demonstrate state transitions and outcomes.</p>
                 </div>
 
                 <div class="modal-section">
                     <h3>Key Features</h3>
                     <ul>
-                        <li>Visual representation of Turing machine operations</li>
-                        <li>Step-by-step execution with animation</li>
-                        <li>Custom tape input and state configuration</li>
-                        <li>Support for multiple computation examples</li>
-                        <li>State transition diagram visualization</li>
-                        <li>Educational mode with explanations</li>
-                    </ul>
+                    <li>💸 Accepts only RM0.50 and RM1.00 coins</li>
+                    <li>🥪 Items priced between RM2 – RM10 (e.g., Water, Soda, Chips, Chocolate, Coffee, Juice, Sandwich, Energy Drink)</li>
+                    <li>✅ Exact payment, underpayment & overpayment with change handled</li>
+                    <li>❌ Invalid coins (e.g., RM0.20, RM5) are rejected</li>
+                    <li>⚙️ Modeled with NFA & DFA; includes NFA-to-DFA conversion using subset construction</li>
+                    <li>🐍 Implemented in Python with simulation of both models</li>
+                </ul>
                 </div>
 
                 <div class="modal-section">
                     <h3>Technologies Used</h3>
-                    <p>Implemented using Python/Java with emphasis on algorithm design and data structures. The simulator leverages object-oriented programming principles to model states, transitions, and tape operations accurately.</p>
+                    <p>Built with <strong>Python</strong>, leveraging formal language theory concepts (NFA, DFA, ε-transitions). Includes GUI-based interaction and console simulation of state transitions.</p>
                 </div>
 
                 <div class="modal-section">
                     <h3>Team Collaboration</h3>
-                    <p>Developed collaboratively with team members, utilizing Git for version control and implementing agile development practices. The project enhanced understanding of theoretical computer science concepts through practical implementation.</p>
+                    <p>Developed collaboratively with team members, utilizing Git for version control and implementing agile development practices.Through this project, I gained practical understanding of:</p>
+                <ul>
+                    <li>🔄 Designing NFAs and converting them to DFAs</li>
+                    <li>📐 Applying subset construction for deterministic models</li>
+                    <li>💡 Implementing theoretical automata concepts in Python</li>
+                    <li>🧩 Debugging state transitions & handling invalid inputs</li>
+                </ul>
                 </div>
             </div>
         </div>
