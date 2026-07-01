@@ -53,15 +53,7 @@ const projects = [
     desc: "Online food ordering system for UNITEN campus — full-stack with role-based auth (User/Vendor/Admin), cart, vendor dashboard, and real-time order tracking.",
     tech: ["PHP", "MySQL", "HTML/CSS", "JavaScript"],
     github: "https://github.com/intanhbrh",
-    accentColor: "bg-white",
-  },
-  {
-    badge: "Academic",
-    title: "Fundamentals of Digitals",
-    desc: "Digital logic design project — Boolean algebra, combinational and sequential circuits, from theory to circuit implementation.",
-    tech: ["Digital Logic", "Circuit Design", "Boolean Algebra"],
-    github: "https://github.com/intanhbrh/Fundamentals-of-Digitals-Project",
-    accentColor: "bg-white",
+    accentColor: "bg-pink",
   },
 ];
 
