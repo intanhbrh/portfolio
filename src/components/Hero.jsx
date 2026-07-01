@@ -18,11 +18,7 @@ export default function Hero() {
         </div>
         <div className="flex-shrink-0 self-end md:self-center">
           <div className="w-52 h-64 md:w-64 md:h-80 border-4 border-ink shadow-brutal-lg bg-pink flex items-center justify-center overflow-hidden rotate-2">
-            {/*
-              Replace with your photo:
-              <img src="/photo.jpg" alt="Intan" className="w-full h-full object-cover" />
-              Put your photo in /public/photo.jpg
-            */}
+           <img src="/photo.jpg" alt="Intan" className="w-full h-full object-cover" />
             <div className="text-center text-white p-4">
               <div className="text-6xl mb-2">👩‍💻</div>
               <p className="text-xs font-bold uppercase tracking-wide">Add photo to<br/>/public/photo.jpg</p>
