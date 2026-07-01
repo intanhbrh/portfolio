@@ -29,7 +29,7 @@ export default function SkillsAbout() {
             <p className="section-eyebrow">Who I am</p>
             <h2 className="section-heading mb-6">ABOUT</h2>
             <p className="text-sm font-medium leading-relaxed text-ink mb-4">I'm a passionate Computer Science student from Malaysia who loves building things that are both <strong>beautiful and functional</strong>. I've worked on Android apps, PHP web systems, and WordPress sites — and I enjoy the full stack, from database design to UI polish.</p>
-            <p className="text-sm font-medium leading-relaxed text-ink mb-6">Currently wrapping up my internship at <strong>HELP International School</strong> where I built a real ANPR school pickup system, a room booking system powered by Agentic AI, and a Lost &amp; Found system — all deployed to production.</p>
+            <p className="text-sm font-medium leading-relaxed text-ink mb-6">Wrapping up my internship at <strong>HELP International School</strong> where I built a real ANPR school pickup system, a room booking system powered by Agentic AI, and a Lost &amp; Found system — all deployed to production.</p>
           </div>
           <div className="border-t-2 border-ink pt-5 mt-2">
             <p className="text-xs font-bold uppercase tracking-widest text-pink mb-3">Quick Info</p>
