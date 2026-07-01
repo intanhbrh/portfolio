@@ -9,8 +9,8 @@ const skills = [
 const quickInfo = [
   {label:"University",value:"MMU Cyberjaya | Grad on Dec"},
   {label:"Degree",value:"CS (Hons.) Software Eng."},
-  {label:"Currently at",value:"HELP International School"},
-  {label:"Based in",value:"Rawang, Selangor, MY"},
+  {label:"Currently",value:"Seeking for full-time job"},
+  {label:"Based in",value:"Kuala Lumpur, MY"},
   {label:"Available",value:"Sept 2026+"},
 ];
 export default function SkillsAbout() {
