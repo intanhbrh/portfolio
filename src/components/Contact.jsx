@@ -19,7 +19,7 @@ export default function Contact() {
         </a>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {contacts.map(({icon:Icon,label,value,href,color})=>(
-            <a key={label} href={href} target={href.startsWith("http")?\"_blank\":undefined} rel="noreferrer"
+            <a key={label} href={href} target={href.startsWith("http")?"_blank":undefined} rel="noreferrer"
               className={`flex items-start gap-3 border-2 border-ink p-4 shadow-brutal-sm hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all ${color} ${color==="bg-pink"?"text-white":""}`}>
               <div className="w-9 h-9 bg-ink flex items-center justify-center flex-shrink-0">
                 <Icon size={15} className="text-white"/>
