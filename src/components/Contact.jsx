@@ -13,7 +13,7 @@ export default function Contact() {
       <div className="brutal-card p-8">
         <p className="section-eyebrow">Let's connect</p>
         <h2 className="section-heading mb-3">CONTACT</h2>
-        <p className="text-sm font-medium text-ink/60 max-w-lg mb-8">Finishing internship Jul 2026, available full-time from September 2026. Open to Software Engineering, Web Design &amp; Development, or Mobile roles — remote, hybrid, or on-site in KL.</p>
+        <p className="text-sm font-medium text-ink/60 max-w-lg mb-8">Finishing internship Jul 2026, available full-time from September 2026 (expected graduation December). Open to Software Engineering, Web Design &amp; Development, or Mobile roles — remote, hybrid, or on-site in KL.</p>
         <a href="mailto:intanhbrh@gmail.com" className="inline-flex items-center gap-2 bg-pink text-white font-bold uppercase tracking-widest text-sm px-8 py-4 border-2 border-ink shadow-brutal hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all mb-10">
           <Mail size={16}/> Send Me an Email
         </a>
