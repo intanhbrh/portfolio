@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #F0EDE6;
+    color: #111111;
+    font-family: "Space Grotesk", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background-color: #F5C518; color: #111111; }
+}
+
+@layer components {
+  .brutal-card { @apply bg-white border-2 border-ink rounded-none shadow-brutal; }
+  .section-eyebrow { @apply text-xs font-bold tracking-[0.2em] uppercase text-pink mb-1; }
+  .section-heading { @apply text-4xl md:text-5xl font-bold text-ink uppercase tracking-tight; }
+  .skill-pill { @apply flex items-center gap-2 border-2 border-ink px-4 py-3 font-bold text-sm uppercase tracking-wide bg-white shadow-brutal-sm hover:bg-yellow transition-colors cursor-default; }
+}
