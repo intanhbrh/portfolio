@@ -7,7 +7,7 @@ const skills = [
   {name:"HTML5",icon:"H"},{name:"CSS3",icon:"C"},{name:"C++",icon:"C++"},{name:"Figma",icon:"🎨"},
 ];
 const quickInfo = [
-  {label:"University",value:"MMU Cyberjaya"},
+  {label:"University",value:"MMU Cyberjaya | Expected Graduation on December"},
   {label:"Degree",value:"CS (Hons.) Software Eng."},
   {label:"Currently at",value:"HELP International School"},
   {label:"Based in",value:"Rawang, Selangor, MY"},
