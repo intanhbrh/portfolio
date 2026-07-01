@@ -65,7 +65,12 @@ export default function Experience() {
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="inline-block bg-ink text-white text-xs font-bold uppercase tracking-widest px-3 py-1 whitespace-nowrap">{j.period}</span>
-                  {j.link && <a href={j.link} target="_blank" rel="noreferrer" className="text-ink/50 hover:text-pink transition-colors"><ExternalLink size={14} /></a>}
+                 {j.link && (
+  <a href={j.link} target="_blank" rel="noreferrer"
+    className="inline-flex items-center gap-1.5 bg-pink text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 border-2 border-ink shadow-brutal-sm hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all">
+    <ExternalLink size={12} /> View Portfolio
+  </a>
+)}
                 </div>
               </div>
               <ul className="space-y-1.5">
