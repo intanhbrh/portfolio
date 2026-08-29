@@ -17,7 +17,6 @@ cd portfolio
 npm install
 npm start
 ```
-
 ### 3. Push to GitHub
 Create a new repo at https://github.com/new (Public), then:
 ```bash
