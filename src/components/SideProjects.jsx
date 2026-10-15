@@ -3,7 +3,7 @@ import { Github, ExternalLink } from "lucide-react";
 
 const sideProjects = [
   {
-    badge: "Personal · Free Time",
+    badge: "Personal ",
     title: "Stickerbox",
     desc: "A free, no-login web app for decorating photos. Upload a photo or start blank, then add PNG stickers, emoji, emoticons and shapes. Drag, resize, recolor and layer them, then save the image to share on Instagram stories or X.",
     tech: ["HTML", "CSS", "JavaScript", "Cloudflare Workers"],
@@ -49,7 +49,7 @@ export default function SideProjects() {
                   ))}
                 </div>
                 <div className="flex flex-wrap gap-2 pt-2 border-t-2 border-ink">
-                  {p.github && <LinkBtn href={p.github} icon={Github} label="Code" />}
+                 
                   {p.live && <LinkBtn href={p.live} icon={ExternalLink} label="Live Site" />}
                 </div>
               </div>
