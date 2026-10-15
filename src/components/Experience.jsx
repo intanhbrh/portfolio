@@ -2,7 +2,7 @@ import React from "react";
 import { ExternalLink } from "lucide-react";
 const jobs = [
   {
-    period: "Apr — Jul 2025",
+    period: "Apr — Jul 2026",
     role: "Software Engineer & IT Support Intern",
     company: "HELP International School",
     type: "EdTech · Shah Alam",
@@ -41,7 +41,7 @@ const jobs = [
   },
   {
     period: "2023 – 2025 (Part-time)",
-    role: "Retail Sales Associate & TROOPERS",
+    role: "Part-time Retail & Service Crew",
     company: "2nd Street | 7-Eleven | B.bap Korean Food",
     type: "Kuala Lumpur",
     color: "bg-cream",
