@@ -7,7 +7,7 @@ const projects = [
     title: "SafePoint",
     desc: "Emergency response mobile app with one-touch SOS alerts, real-time GPS location sharing, incident reporting with photos, and safety resource hub.",
     tech: ["Java", "Android Studio", "Firebase", "Google Maps API", "XML"],
-    github: "https://github.com/intanhbrh",
+    github: "https://github.com/intanhbrh/MySafePoint-Emergency-Response-Mobile-App",
     accentColor: "bg-yellow",
   },
   {
